@@ -2,29 +2,37 @@
 
 import React, { Component } from 'react'
 import CoverForm from "./components/coverForm";
-import CoverOutput from './components/coverOutput';
+import './styles/app.css'
 
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      description: '',
-      school: '',
-      title: '',
-      fromDate: '', 
-      toDate: '',
-      location: '',
-      company: '',
-      companyTitle: '',
-      companyDateStart: '',
-      companyDateEnd: '',
-      companyTasks: '',
+      data: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        description: '',
+        school: '',
+        title: '',
+        fromDate: '', 
+        toDate: '',
+        location: '',
+        company: '',
+        companyTitle: '',
+        companyDateStart: '',
+        companyDateEnd: '',
+        companyTasks: '',
+      }
+      
     }
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log('submitted')
   }
 
   handleChange = (event) => {
@@ -36,9 +44,8 @@ class App extends Component {
 
   render() {
     return(
-      <section>
-        <CoverForm onChange={this.handleChange} values={this.state}/>
-        <CoverOutput output={this.state}/>
+      <section className='cover-container'>
+        <CoverForm onChange={this.handleChange} values={this.state} onSubmit={this.onSubmit}/>
       </section>
     )
   }
