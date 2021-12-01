@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
-
 import React, { Component } from 'react'
-import CoverForm from "./components/coverForm";
+import CoverForm from './components/coverForm';
+import CoverOutput from './components/coverOutput';
 import './styles/app.css'
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
     super(props)
 
     this.state = {
+      showCover: false,
       data: {
         firstName: '',
         lastName: '',
@@ -26,26 +27,35 @@ class App extends Component {
         companyDateEnd: '',
         companyTasks: '',
       }
-      
     }
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log('submitted')
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+    this.setState((prevState) => {
+     return {
+       showCover: !prevState.showCover
+     }
+    })
   }
 
   handleChange = (event) => {
     this.setState({
-      ...this.state,
-      [event.target.name]: event.target.value
+      data: {
+        ...this.state.data,
+        [event.target.name]:event.target.value
+      },
     })
   }
 
   render() {
     return(
       <section className='cover-container'>
-        <CoverForm onChange={this.handleChange} values={this.state} onSubmit={this.onSubmit}/>
+        { this.state.showCover
+          ? <CoverOutput data={this.state.data}/>
+          : <CoverForm onChange={this.handleChange} values={this.state.data} onSubmit={this.handleSubmit}/>
+        }
       </section>
     )
   }
