@@ -11,34 +11,36 @@ class App extends Component {
     this.state = {
       showCover: true,
       data: {
-        firstName: 'Yeffry',
-        lastName: 'Fermin',
-        email: 'yeffry45@gmail.com',
-        phone: '929-474-7517',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id eleifend neque dolor sit amet, consectetur ',
-        company: 'Apples Company',
-        companyTitle: 'Web Developer',
-        companyDateStart: '12/2020',
-        companyDateEnd: '12/2022',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        description: '',
+        company: '',
+        companyTitle: '',
+        companyDateStart: '',
+        companyDateEnd: '',
         companyTasks: '',
-        school: 'In-Tech Academy',
-        title: 'Software Developer',
-        fromDate: '9/2008', 
-        toDate: '6/2012',
-        location: 'New York City',
-        
+        school: '',
+        title: '',
+        fromDate: '', 
+        toDate: '',
+        location: '',
       }
     }
   }
 
+  isValid = () => {
+    this.setState((prevState) => {
+      return {
+        showCover: !prevState.showCover
+      }
+     })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
-
-    this.setState((prevState) => {
-     return {
-       showCover: !prevState.showCover
-     }
-    })
+    this.isValid()
   }
 
   handleChange = (event) => {
