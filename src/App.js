@@ -9,7 +9,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      showCover: true,
+      showCover: false,
       data: {
         firstName: '',
         lastName: '',
@@ -56,7 +56,7 @@ class App extends Component {
     return(
       <section className='cover-container'>
         { this.state.showCover
-          ? <CoverOutput data={this.state.data}/>
+          ? <CoverOutput data={this.state.data} onClick={this.isValid}/>
           : <CoverForm onChange={this.handleChange} values={this.state.data} onSubmit={this.handleSubmit}/>
         }
       </section>

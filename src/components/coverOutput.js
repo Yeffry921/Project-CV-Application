@@ -29,6 +29,7 @@ class CoverOutput extends Component {
     return(
       <div className='output__wrapper'>
        <header className='heading'>
+          <button onClick={this.props.onClick}>Edit</button>
           <div className='heading__name'>{firstName} {lastName}</div>
           <div className='heading__email'>{email}</div>
           <div className='heading__phone'>{phone}</div>
