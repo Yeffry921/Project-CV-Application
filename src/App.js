@@ -16,16 +16,17 @@ class App extends Component {
         email: 'yeffry45@gmail.com',
         phone: '929-474-7517',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id eleifend neque dolor sit amet, consectetur ',
+        company: 'Apples Company',
+        companyTitle: 'Web Developer',
+        companyDateStart: '12/2020',
+        companyDateEnd: '12/2022',
+        companyTasks: '',
         school: 'In-Tech Academy',
         title: 'Software Developer',
         fromDate: '9/2008', 
         toDate: '6/2012',
         location: 'New York City',
-        company: 'Apples Company',
-        companyTitle: 'Web Developer',
-        companyDateStart: '12/2020',
-        companyDateEnd: '',
-        companyTasks: '',
+        
       }
     }
   }
