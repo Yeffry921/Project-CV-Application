@@ -10,23 +10,32 @@ class App extends Component {
 
     this.state = {
       showCover: false,
-      data: {
+      personal: {
         firstName: '',
         lastName: '',
         email: '',
         phone: '',
-        description: '',
-        company: '',
-        companyTitle: '',
-        companyDateStart: '',
-        companyDateEnd: '',
-        companyTasks: '',
-        school: '',
-        title: '',
-        fromDate: '', 
-        toDate: '',
-        location: '',
-      }
+        description: ''
+      },
+      jobs: [
+        {
+          title: '',
+          employer: '',
+          location: '',
+          start_date: '',
+          end_date: '',
+          description: ''
+        }
+      ],
+      education: [
+        {
+          school: '',
+          title: '',
+          fromDate: '', 
+          toDate: '',
+          location: ''
+        }
+      ]
     }
   }
 
