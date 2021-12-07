@@ -1,5 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react'
+import { v4 as uuidv4 } from 'uuid';
+
 import CoverForm from './components/coverForm';
 import CoverOutput from './components/coverOutput';
 import './styles/app.css'
@@ -17,25 +19,8 @@ class App extends Component {
         phone: '',
         description: ''
       },
-      jobs: [
-        {
-          title: '',
-          employer: '',
-          location: '',
-          start_date: '',
-          end_date: '',
-          description: ''
-        }
-      ],
-      education: [
-        {
-          school: '',
-          title: '',
-          fromDate: '', 
-          toDate: '',
-          location: ''
-        }
-      ]
+      jobs: [],
+      education: []
     }
   }
 
@@ -52,22 +37,39 @@ class App extends Component {
     this.isValid()
   }
 
-  handleChange = (event) => {
+  handleAddEducationField = (e) => {
+    e.preventDefault()
     this.setState({
-      data: {
-        ...this.state.data,
-        [event.target.name]:event.target.value
-      },
+     education: [
+       ...this.state.education,
+       {
+        id: uuidv4(),
+        school: '',
+        title: '',
+        fromDate: '', 
+        toDate: '',
+        location: ''
+       }
+     ]
     })
   }
 
+  handleEducationChange = (event, id) => {
+   
+  }
   render() {
     return(
       <section className='cover-container'>
-        { this.state.showCover
+        {/* { this.state.showCover
           ? <CoverOutput data={this.state.data} onClick={this.isValid}/>
-          : <CoverForm onChange={this.handleChange} values={this.state.data} onSubmit={this.handleSubmit}/>
-        }
+          : <CoverForm onChange={this.addEducationField} values={this.state.data} onSubmit={this.handleSubmit}/>
+        } */}
+        <CoverForm 
+          addEducationField={this.handleAddEducationField} 
+          values={this.state} 
+          onSubmit={this.handleSubmit}
+          onEducationChange={this.handleEducationChange}
+        />
       </section>
     )
   }
