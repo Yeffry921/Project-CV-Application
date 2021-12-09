@@ -32,13 +32,13 @@ class App extends Component {
      })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault()
     this.isValid()
   }
 
-  handleAddEducationField = (e) => {
-    e.preventDefault()
+  handleAddEducationField = (event) => {
+    event.preventDefault()
     this.setState({
      education: [
        ...this.state.education,
@@ -54,8 +54,8 @@ class App extends Component {
     })
   }
 
-  handleAddJobField = (e) => {
-    e.preventDefault();
+  handleAddJobField = (event) => {
+    event.preventDefault();
     this.setState({
       jobs: [
         ...this.state.jobs,
@@ -108,6 +108,15 @@ class App extends Component {
     })
   }
 
+  handlePersonalChange = (event) => {
+    this.setState({
+      personal: {
+        ...this.state.personal,
+        [event.target.name]:event.target.value
+      }
+    })
+  }
+
   render() {
     return(
       <section className='cover-container'>
@@ -122,6 +131,7 @@ class App extends Component {
           onSubmit={this.handleSubmit}
           onEducationChange={this.handleEducationChange}
           onJobChange={this.handleJobChange}
+          onHandlePersonalChange={this.handlePersonalChange}
         />
       </section>
     )
