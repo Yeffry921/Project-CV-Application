@@ -89,6 +89,25 @@ class App extends Component {
       }
     })
   }
+
+  handleJobChange = (event, id) => {
+    this.setState((prevState) => {
+      const jobMatch = prevState.jobs.map((job) => {
+        if(job.id === id) {
+          return {
+            ...job,
+            [event.target.name]:event.target.value
+          }
+        }
+        return job
+      })
+      return {
+        ...prevState,
+        job: [...jobMatch]
+      }
+    })
+  }
+
   render() {
     return(
       <section className='cover-container'>
@@ -102,6 +121,7 @@ class App extends Component {
           values={this.state} 
           onSubmit={this.handleSubmit}
           onEducationChange={this.handleEducationChange}
+          onJobChange={this.handleJobChange}
         />
       </section>
     )
