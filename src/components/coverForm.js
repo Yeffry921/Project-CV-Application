@@ -2,8 +2,9 @@
 import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-import Educational
- from './Educational';
+import Educational from './EducationField';
+import JobField from './JobField';
+
 class CoverForm extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ class CoverForm extends Component {
  
   render () {
     const { personal, jobs, education } = this.props.values
-    const { addEducationField, onEducationChange } = this.props
+    const { addEducationField, addJobField, onEducationChange, onJobChange } = this.props
       return (
         <div className='cover-wrapper'>
           <form>
@@ -26,9 +27,9 @@ class CoverForm extends Component {
 
             <div>
               <h3>Educational Experience</h3>
-              {education.map((item) => {
+              {education.map((eduItem) => {
                 return (
-                  <Educational data={item} id={item.id} key={item.id} onChange={onEducationChange}/>
+                  <Educational data={eduItem} id={eduItem.id} key={eduItem.id} onChange={onEducationChange}/>
                 )
               })}
               <button onClick={addEducationField}>Add Field</button>
@@ -36,11 +37,13 @@ class CoverForm extends Component {
 
             <div>
               <h3>Practical Experience</h3>
-              {/* <input type='text' onChange={onChange} value={values.company} name='company' placeholder='Company Name'/>
-              <input type='text' onChange={onChange} value={values.companyTitle} name='companyTitle' placeholder='Company Title'/>
-              <input type='date' onChange={onChange} value={values.companyDateStart} name='companyDateStart' placeholder='Date started'/>
-              <input type='date' onChange={onChange} value={values.companyDateEnd} name='companyDateEnd' placeholder='Dated ended (Leave blank if still attending)'/>
-              <input placeholder='Main tasks' onChange={onChange} value={values.companyTasks} name='companyTasks'/> */}
+
+              {jobs.map((jobItem) => {
+                return (
+                  <JobField data={jobItem} id={jobItem.id} key={jobItem.id} onChange={onJobChange}/>
+                )
+              })}
+              <button onClick={addJobField}>Add Field</button>
             </div>
 
             <div>
