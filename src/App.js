@@ -55,7 +55,23 @@ class App extends Component {
   }
 
   handleEducationChange = (event, id) => {
-   
+
+    this.setState((prevState) => {
+      const educationMatch = prevState.education.map((eduItem) => {
+        if(eduItem.id === id) {
+          return {
+            ...eduItem,
+            [event.target.name] : event.target.value
+          }
+        }
+        return eduItem
+      })
+
+      return {
+        ...prevState,
+        education: [...educationMatch]
+      }
+    })
   }
   render() {
     return(
