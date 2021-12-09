@@ -54,6 +54,22 @@ class App extends Component {
     })
   }
 
+  handleAddJobField = (e) => {
+    e.preventDefault();
+    this.setState({
+      jobs: [
+        ...this.state.jobs,
+        {
+          company: '',
+          companyTitle: '',
+          companyDateStart: '',
+          companyDateEnd: '',
+          companyTasks: '',
+        }
+      ]
+    })
+  }
+
   handleEducationChange = (event, id) => {
 
     this.setState((prevState) => {
@@ -81,7 +97,8 @@ class App extends Component {
           : <CoverForm onChange={this.addEducationField} values={this.state.data} onSubmit={this.handleSubmit}/>
         } */}
         <CoverForm 
-          addEducationField={this.handleAddEducationField} 
+          addEducationField={this.handleAddEducationField}
+          addJobField={this.handleAddJobField} 
           values={this.state} 
           onSubmit={this.handleSubmit}
           onEducationChange={this.handleEducationChange}
