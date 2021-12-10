@@ -65,7 +65,6 @@ class App extends Component {
           companyTitle: '',
           companyDateStart: '',
           companyDateEnd: '',
-          companyTasks: '',
         }
       ]
     })
@@ -104,7 +103,7 @@ class App extends Component {
       })
       return {
         ...prevState,
-        job: [...jobMatch]
+        jobs: [...jobMatch]
       }
     })
   }
@@ -120,7 +119,7 @@ class App extends Component {
 
   render() {
     return(
-      <section className='cover-container'>
+      <section className='cover__container'>
         
         <CoverOutput data={this.state}/>
     
