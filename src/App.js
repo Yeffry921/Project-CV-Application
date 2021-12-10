@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
 import CoverForm from './components/CoverForm'
+import CoverOutput from './components/CoverOutput'
 import './styles/app.css'
 
 class App extends Component {
@@ -120,10 +121,9 @@ class App extends Component {
   render() {
     return(
       <section className='cover-container'>
-        {/* { this.state.showCover
-          ? <CoverOutput data={this.state.data} onClick={this.isValid}/>
-          : <CoverForm onChange={this.addEducationField} values={this.state.data} onSubmit={this.handleSubmit}/>
-        } */}
+        
+        <CoverOutput data={this.state}/>
+    
         <CoverForm 
           addEducationField={this.handleAddEducationField}
           addJobField={this.handleAddJobField} 
