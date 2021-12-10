@@ -56,11 +56,14 @@ input:hover {
 textarea {
   width: 100%;
 }
-
-.cover-wrapper {
+.cover__container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.input__wrapper {
   background-color: #f3f3f3;
-  width: 55rem;
-  margin: 20px auto;
+  width: 550px;
   padding: 15px 0;
   border-radius: 15px;
 }
@@ -80,8 +83,7 @@ textarea {
 
 /* Cover Output */
 .output__wrapper {
-  
-  margin: 0 auto;
+  width: 570px;
 }
 .heading {
   background-color: #333333;
