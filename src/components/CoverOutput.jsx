@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 /* eslint-disable no-useless-constructor */
+import JobItemOutput from './JobItemOutput'
+import EducationalItemOutput from './EducationItemOutput'
 
 class CoverOutput extends Component {
   constructor(props) {
@@ -7,58 +9,29 @@ class CoverOutput extends Component {
   }
 
   render() {
-    const {
-      firstName, 
-      lastName, 
-      email, 
-      phone,
-      description,
-      school,
-      title,
-      fromDate, 
-      toDate,
-      location,
-      company,
-      companyTitle,
-      companyDateStart,
-      companyDateEnd,
-      } = this.props.data
+    const { personal, education, jobs } = this.props.data
 
-    console.log()
     return(
       <div className='output__wrapper'>
        <header className='heading'>
-          <button onClick={this.props.onClick}>Edit</button>
-          <div className='heading__name'>{firstName} {lastName}</div>
-          <div className='heading__email'>{email}</div>
-          <div className='heading__phone'>{phone}</div>
+          <div className='heading__name'>{personal.firstName} {personal.lastName}</div>
+          <div className='heading__email'>{personal.email}</div>
+          <div className='heading__phone'>{personal.phone}</div>
        </header>
        <section className='body__wrapper'>
          <main className='body__content'>
           <div className='body__description'>
             <h3>Description</h3>
-            <p>{description}</p>
+            <p>{personal.description}</p>
           </div>
           <div className='body__experience'>
             <h3>Experience</h3>
-            <div>
-              <p className='company__name'>{company}</p>
-              <p className='company__title'>{companyTitle}</p>
-            </div>
-            <div>
-              <p>{companyDateStart} -</p>
-              <p>{companyDateEnd}</p>
-            </div>
+            <JobItemOutput dataJobs={jobs}/>
           </div>
           <div>
             <h3>Education</h3>
-            <p>{school}</p>
-            <p>{title}</p>
-            <p>{fromDate} -</p>
-            <p>{toDate}</p>
-            <p>{location}</p>
+            <EducationalItemOutput dataEdu={education}/>
           </div>
-           
          </main>
          <aside></aside>
        </section>
