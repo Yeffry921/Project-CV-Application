@@ -14,7 +14,7 @@ class CoverForm extends Component {
     const { personal, jobs, education } = this.props.values
     const { addEducationField, addJobField, onEducationChange, onJobChange, onHandlePersonalChange } = this.props
       return (
-        <div className='cover-wrapper'>
+        <div className='input__wrapper'>
           <form>
             <div>
               <h3>Personal Information</h3>
@@ -22,23 +22,23 @@ class CoverForm extends Component {
             </div>
 
             <div>
-              <h3>Educational Experience</h3>
-              {education.map((eduItem) => {
-                return (
-                  <Educational data={eduItem} id={eduItem.id} key={eduItem.id} onChange={onEducationChange}/>
-                )
-              })}
-              <button onClick={addEducationField}>Add Field</button>
-            </div>
-
-            <div>
-              <h3>Practical Experience</h3>
+              <h3>Experience</h3>
               {jobs.map((jobItem) => {
                 return (
                   <JobField data={jobItem} id={jobItem.id} key={jobItem.id} onChange={onJobChange}/>
                 )
               })}
               <button onClick={addJobField}>Add Field</button>
+            </div>
+
+            <div>
+              <h3>Education</h3>
+              {education.map((eduItem) => {
+                return (
+                  <Educational data={eduItem} id={eduItem.id} key={eduItem.id} onChange={onEducationChange}/>
+                )
+              })}
+              <button onClick={addEducationField}>Add Field</button>
             </div>
 
             <div>
