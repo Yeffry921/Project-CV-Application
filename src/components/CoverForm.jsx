@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react'
 
-import Educational from './EducationField';
-import JobField from './JobField';
-import PersonalField from './PersonalField';
+import Educational from './EducationField.jsx'
+import JobField from './JobField.jsx';
+import PersonalField from './PersonalField.jsx';
 
 class CoverForm extends Component {
   constructor(props) {
@@ -33,7 +33,6 @@ class CoverForm extends Component {
 
             <div>
               <h3>Practical Experience</h3>
-
               {jobs.map((jobItem) => {
                 return (
                   <JobField data={jobItem} id={jobItem.id} key={jobItem.id} onChange={onJobChange}/>
