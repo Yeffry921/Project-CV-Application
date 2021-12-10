@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react'
-import { v4 as uuidv4 } from 'uuid';
 
 import Educational from './EducationField';
 import JobField from './JobField';
+import PersonalField from './PersonalField';
 
 class CoverForm extends Component {
   constructor(props) {
@@ -12,17 +12,13 @@ class CoverForm extends Component {
  
   render () {
     const { personal, jobs, education } = this.props.values
-    const { addEducationField, addJobField, onEducationChange, onJobChange } = this.props
+    const { addEducationField, addJobField, onEducationChange, onJobChange, onHandlePersonalChange } = this.props
       return (
         <div className='cover-wrapper'>
           <form>
             <div>
-              {/* <h3>Personal Information</h3>
-              <input type='text' placeholder='First Name' name='firstName' required onChange={onChange} value={values.firstName}/>
-              <input type='text' placeholder='Last Name' name='lastName' required onChange={onChange} value={values.lastName}/>
-              <input type='email' placeholder='Email' name='email' required onChange={onChange} value={values.email}/>
-              <input type='text' placeholder='Phone Number' name='phone' required onChange={onChange} value={values.phone}/>
-              <input placeholder='Description' name='description' required onChange={onChange} value={values.description}/> */}
+              <h3>Personal Information</h3>
+              <PersonalField data={personal} onChange={onHandlePersonalChange}/>
             </div>
 
             <div>
