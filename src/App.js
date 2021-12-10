@@ -2,8 +2,7 @@
 import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-import CoverForm from './components/coverForm';
-import CoverOutput from './components/coverOutput';
+import CoverForm from './components/CoverForm'
 import './styles/app.css'
 
 class App extends Component {
@@ -60,6 +59,7 @@ class App extends Component {
       jobs: [
         ...this.state.jobs,
         {
+          id: uuidv4(),
           company: '',
           companyTitle: '',
           companyDateStart: '',
