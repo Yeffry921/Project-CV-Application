@@ -120,9 +120,6 @@ class App extends Component {
   render() {
     return(
       <section className='cover__container'>
-        
-        <CoverOutput data={this.state}/>
-    
         <CoverForm 
           addEducationField={this.handleAddEducationField}
           addJobField={this.handleAddJobField} 
@@ -132,6 +129,8 @@ class App extends Component {
           onJobChange={this.handleJobChange}
           onHandlePersonalChange={this.handlePersonalChange}
         />
+
+        <CoverOutput data={this.state}/>
       </section>
     )
   }
