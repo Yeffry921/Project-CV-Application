@@ -13,7 +13,6 @@ class JobField extends Component {
         <input type='text' onChange={(e) => onChange(e ,data.id)} value={data.companyTitle} name='companyTitle' placeholder='Company Title'/>
         <input type='date' onChange={(e) => onChange(e ,data.id)} value={data.companyDateStart} name='companyDateStart' placeholder='Date started'/>
         <input type='date' onChange={(e) => onChange(e ,data.id)} value={data.companyDateEnd} name='companyDateEnd' placeholder='Dated ended (Leave blank if still attending)'/>
-        <input type='date'  onChange={(e) => onChange(e ,data.id)} value={data.companyTasks} name='companyTasks' placeholder='Main tasks'/>
       </div>
     )
   }
